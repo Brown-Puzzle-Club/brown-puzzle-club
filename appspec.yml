@@ -1,7 +1,0 @@
-name: bph-static
-services:
-  - name: web
-    environment_slug: static
-    static_sites:
-      - build_command: "zola build"
-        publish_dir: "./public"
