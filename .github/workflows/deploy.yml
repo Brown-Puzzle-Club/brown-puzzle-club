@@ -26,4 +26,4 @@ jobs:
         uses: digitalocean/app-action@v1
         with:
           api-token: ${{ secrets.DIGITALOCEAN_API_TOKEN }}
-          spec: ./path-to-your-appspec.yml
+          spec: ./appspec.yml
