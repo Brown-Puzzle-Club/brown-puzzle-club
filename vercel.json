@@ -1,4 +1,9 @@
 {
+  "build": {
+    "env": {
+      "NODE_VERSION": "20.x"
+    }
+  },
   "cleanUrls": true,
   "trailingSlash": true,
   "framework": null,
