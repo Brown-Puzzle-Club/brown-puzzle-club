@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://brownpuzzle.club"
+base_url = "https://brown-puzzle-club.github.io/bph-static/"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
