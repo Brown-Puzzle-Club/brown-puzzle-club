@@ -343,6 +343,32 @@ body > nav > .nav-links > ul > li {
   display: flex;               
   justify-content: flex-end; 
   align-items: right;
+  padding-top: 7px;
+}
+
+@media (max-width: 900px) {
+  .puzzlethon-container {
+    flex-direction: column;  
+    align-items: center;    
+    gap: 10px;               
+  }
+
+  .puzzlethon-box {
+    margin-top: 0; 
+  }
+
+  .puzzlethon-image img {
+    width: 100%;  
+    max-width: 300px; 
+    padding-top: 30px;
+    padding-bottom: 8px;
+  }
+
+  .puzzlethon-text {
+    width: 90%;  
+    max-width: 50vw; 
+  }
+  
 }
 
 // Mobile table stuff
