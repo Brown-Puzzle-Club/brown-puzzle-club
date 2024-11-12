@@ -59,8 +59,6 @@ body {
   margin: auto;
   margin-top: 5vh;
   margin-bottom: auto;
-  max-height: 80vh;
-  overflow: auto;
 }
 
 .content-vertical-hack {
@@ -92,7 +90,6 @@ body {
   height: 60vh;
   margin-right: 100px;
   margin-left: 100px;
-  margin-top: 50px;
   //overflow: hidden;
 }
 
@@ -104,16 +101,26 @@ body {
   transition: transform 10s ease-out; /* adds smoothness to initial positions */
 }
 
+@media (min-width: 1001px) {
+  .front-content {
+    max-height: 80vh;
+    overflow: auto;
+  }
+
+  .image-container {
+    margin-top: 50px;
+  }
+}
+
 @media (max-width: 1000px) {
   .container {
     flex-direction: column; /* Stack divs vertically */
     align-items: center; /* Center the content */
-    height: 30vh;
   }
 
   .image-container {
     width: 100%; /* Ensure the image container takes up full width on small screens */
-    height: 60vh; /* Adjust height for smaller screens */
+    min-height: 30vh; /* Adjust height for smaller screens */
   }
 }
 

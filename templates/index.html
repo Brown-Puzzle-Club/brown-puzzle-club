@@ -20,8 +20,11 @@ window.onload = () => {
   const containerHeight = container.offsetHeight;
 
   const imageSize = window.innerWidth * 0.08;
+  
+  const isMobile = window.innerWidth < 1000;
+  const bounceBoundary = isMobile ? 0 : -200; // Bounce off 0 on mobile, -200 on larger screens
 
-  // Randomize initial positions for the images
+  // Randomize initial positions
   function biasedPosition() {
     const edgeBiasFactor = 0.2; // Bias the images away from the edges
     const horizontalBias = Math.random() < 0.5 ? 0 : containerWidth - imageSize;
@@ -101,45 +104,46 @@ window.onload = () => {
 
   // Mouse event listeners!
   images.forEach((img, index) => {
-    img.addEventListener('mousedown', (e) => {
+    const onDragStart = (e) => {
       e.preventDefault();
+      
+      const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+      const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
       
       isDragging = true;
       draggedIndex = index;
-      dragOffsetX = e.clientX - positions[index].x;
-      dragOffsetY = e.clientY - positions[index].y;
+      dragOffsetX = clientX - positions[index].x;
+      dragOffsetY = clientY - positions[index].y;
 
-      // Disable the physics
       velocities[index].x = 0;
       velocities[index].y = 0;
+    };
 
-    });
+    img.addEventListener('mousedown', onDragStart);
+    img.addEventListener('touchstart', onDragStart);
   });
 
   container.addEventListener('mousemove', (e) => {
     if (isDragging && draggedIndex !== null) {
       const img = images[draggedIndex];
+      const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+      const clientY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
 
-      // Update the position
-      positions[draggedIndex].x = e.clientX - dragOffsetX;
-      positions[draggedIndex].y = e.clientY - dragOffsetY;
+      positions[draggedIndex].x = clientX - dragOffsetX;
+      positions[draggedIndex].y = clientY - dragOffsetY;
 
       img.style.left = `${positions[draggedIndex].x}px`;
       img.style.top = `${positions[draggedIndex].y}px`;
 
-      // the dragged image bounces off other images
       images.forEach((otherImg, otherIndex) => {
         if (draggedIndex !== otherIndex) {
           const otherPos = positions[otherIndex];
-          const rect = img.getBoundingClientRect();
-          const otherRect = otherImg.getBoundingClientRect();
           const distX = positions[draggedIndex].x - otherPos.x;
           const distY = positions[draggedIndex].y - otherPos.y;
           const distance = Math.sqrt(distX * distX + distY * distY);
 
           if (distance < imageSize) {
             pushApart(draggedIndex, otherIndex);
-            // Reverse velocities if they overlap
             const vel1 = velocities[draggedIndex];
             const vel2 = velocities[otherIndex];
             vel1.x = -vel1.x;
@@ -158,7 +162,50 @@ window.onload = () => {
       velocities[draggedIndex].x = (Math.random() - 0.5) * 2;
       velocities[draggedIndex].y = (Math.random() - 0.5) * 2;
 
-      // Re-enable normal physics
+      draggedIndex = null;
+    }
+  });
+
+  container.addEventListener('touchmove', (e) => {
+    if (isDragging && draggedIndex !== null) {
+      const img = images[draggedIndex];
+      const clientX = e.touches[0].clientX;
+      const clientY = e.touches[0].clientY;
+
+      positions[draggedIndex].x = clientX - dragOffsetX;
+      positions[draggedIndex].y = clientY - dragOffsetY;
+
+      img.style.left = `${positions[draggedIndex].x}px`;
+      img.style.top = `${positions[draggedIndex].y}px`;
+
+      // Handle image bouncing on mobile
+      images.forEach((otherImg, otherIndex) => {
+        if (draggedIndex !== otherIndex) {
+          const otherPos = positions[otherIndex];
+          const distX = positions[draggedIndex].x - otherPos.x;
+          const distY = positions[draggedIndex].y - otherPos.y;
+          const distance = Math.sqrt(distX * distX + distY * distY);
+
+          if (distance < imageSize) {
+            pushApart(draggedIndex, otherIndex);
+            const vel1 = velocities[draggedIndex];
+            const vel2 = velocities[otherIndex];
+            vel1.x = -vel1.x;
+            vel1.y = -vel1.y;
+            vel2.x = -vel2.x;
+            vel2.y = -vel2.y;
+          }
+        }
+      });
+    }
+  });
+
+  container.addEventListener('touchend', () => {
+    if (isDragging) {
+      isDragging = false;
+      velocities[draggedIndex].x = (Math.random() - 0.5) * 2;
+      velocities[draggedIndex].y = (Math.random() - 0.5) * 2;
+
       draggedIndex = null;
     }
   });
@@ -175,14 +222,20 @@ window.onload = () => {
         if (pos.x > containerWidth - imageSize) {
           vel.x = -Math.abs(vel.x);
         }
-        if (pos.x < -200) {
+        if (pos.x < bounceBoundary) {  
           vel.x = Math.abs(vel.x);
         }
-        if (pos.y < -200) {
+        if (pos.y < bounceBoundary) {  
           vel.y = Math.abs(vel.y);
         }
-        if (pos.y > containerHeight) {
-          vel.y = -Math.abs(vel.y);
+        if (isMobile) {
+          if (pos.y > containerHeight - imageSize) {
+            vel.y = -Math.abs(vel.y);
+          }
+        } else {
+          if (pos.y > containerHeight) {
+            vel.y = -Math.abs(vel.y);
+          }
         }
 
         images.forEach((otherImg, otherIndex) => {
