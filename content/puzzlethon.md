@@ -11,7 +11,7 @@ It's light-hearted, low-stakes, and a great way to get into writing puzzles if y
 
 We'll also be livestreaming the event. If you're curious about taking a look behind the scenes to see what goes into writing a puzzlehunt, check it out!
 
-Making a puzzlehunt requires all kinds of people with many different skillsets: we need <span class="bold-text">writers</span>, <span class="bold-text">programmers</span>, <span class="bold-text">artists</span>, <span class="bold-text">testers</span>, and more. If you're interested in participating in Puzzlethon (and you're a Brown or RISD student), fill out this form! 
+Making a puzzlehunt requires all kinds of people with many different skillsets: we need <span class="bold-text">writers</span>, <span class="bold-text">programmers</span>, <span class="bold-text">artists</span>, <span class="bold-text">testers</span>, and more. If you're interested in participating in Puzzlethon (and you're a Brown or RISD student), fill out [this form](https://forms.gle/sWsfF7gDDDtHwPKi7)! 
 
 
 ### What's a puzzlehunt?
@@ -39,11 +39,11 @@ A few reasons:
 <ol>
     <li>It'll be fun! We like making things.</li>
     <li>It's a great way for new writers to learn puzzle-writing.</li>
-    <li>We want to test our new tech stack before winter break.</li>
+    <li>We want to test our brand-new tech stack before winter break.</li>
 </ol>
 
 ### How can I be involved?
 
-If you're interested in participating in Puzzlethon (and you're a Brown or RISD student), fill out this form! 
+If you're interested in participating in Puzzlethon (and you're a Brown or RISD student), [fill out this form](https://forms.gle/sWsfF7gDDDtHwPKi7)! 
 
 If you're not a Brown or RISD student, you can check out our livestream, and solve the puzzles once they release. (Come back later for more information!)
