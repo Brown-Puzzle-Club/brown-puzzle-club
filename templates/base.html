@@ -25,17 +25,36 @@
       <div class="logo">
         <img src="{{ get_url(path='logo.png') }}" alt="Logo">
       </div>
-      <ul>
-        <li><a href="{{ get_url(path='') }}" class="nav-button">Home</a></li>
-        <li><a href="{{ get_url(path='@/members/_index.md') }}" class="nav-button">Members</a></li>
-        <li><a href="{{ get_url(path='@/archive/_index.md') }}" class="nav-button">Past Hunts</a></li>
-        <li><a href="{{ get_url(path='@/puzzlethon.md') }}" class="nav-button">Puzzlethon</a></li>
-      </ul>
+      <button class="menu-toggle" id="menu-toggle">
+        &#9776; <!-- Hamburger! yum -->
+      </button>
+      <div class="nav-links">
+        <ul>
+          <li><a href="{{ get_url(path='') }}" class="nav-button">Home</a></li>
+          <li><a href="{{ get_url(path='@/members/_index.md') }}" class="nav-button">Members</a></li>
+          <li><a href="{{ get_url(path='@/archive/_index.md') }}" class="nav-button">Past Hunts</a></li>
+          <li><a href="{{ get_url(path='@/puzzlethon.md') }}" class="nav-button">Puzzlethon</a></li>
+        </ul>
+      </div>
     </nav>
     <main>
         {% block content %} {% endblock %}
     </main>
     <footer>
     </footer>
+
+    <script>
+      // grrr I hate waiting for DOM
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        // Add event listener to the hamburger
+        menuToggle.addEventListener('click', function() {
+          // Toggle 'active' class / toggle dropdown menu
+          navLinks.classList.toggle('active');
+        });
+      });
+    </script>
   </body>
 </html>
