@@ -3,6 +3,14 @@ title = "Puzzlethon"
 template = "puzzlethon.html"
 +++
 
+### Important links
+
+If you're a Brown/RISD student and you want to do Puzzlethon, [fill out this form](https://forms.gle/sWsfF7gDDDtHwPKi7)! (Please do so soon!)
+
+If you want to solve the puzzles, you can [register a team here](https://puzzlethon.brownpuzzle.club/).
+
+If you want to watch the livestream, it'll [go live on November 23 at noon ET here](https://www.youtube.com/watch?v=UsYU3zxQINQ).
+
 ### What is this?
 
 Puzzlethon is an event where we write, test, and publish an entire puzzlehunt in 24 hours. 
