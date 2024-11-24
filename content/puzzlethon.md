@@ -3,6 +3,8 @@ title = "Puzzlethon"
 template = "puzzlethon.html"
 +++
 
+**Status**: The stream is currently down, but we're planning to put it back up later this evening. We're still writing!
+
 ### Important links
 
 If you're a Brown/RISD student and you want to do Puzzlethon, [fill out this form](https://forms.gle/sWsfF7gDDDtHwPKi7)! (Please do so soon!)
