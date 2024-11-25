@@ -3,15 +3,9 @@ title = "Puzzlethon"
 template = "puzzlethon.html"
 +++
 
-**Status**: The stream is currently down, but we're planning to put it back up later this evening. We're still writing!
+**Status**: We finished writing the hunt within 24 hours! If you want to solve the puzzles, you can [register a team here](https://puzzlethon.brownpuzzle.club/).
 
-### Important links
-
-If you're a Brown/RISD student and you want to do Puzzlethon, [fill out this form](https://forms.gle/sWsfF7gDDDtHwPKi7)! (Please do so soon!)
-
-If you want to solve the puzzles, you can [register a team here](https://puzzlethon.brownpuzzle.club/).
-
-If you want to watch the livestream, it'll [go live on November 23 at noon ET here](https://www.youtube.com/watch?v=UsYU3zxQINQ).
+If you enjoyed this hunt, and want to support Brown Puzzle Club, consider [donating to our club](https://bbis.advancement.brown.edu/BBPhenix/give-now?did=05732af4-d994-4d40-bcd6-fb42d07b6eab). Proceeds go directly toward events like this (mostly the server costs). 
 
 ### What is this?
 
