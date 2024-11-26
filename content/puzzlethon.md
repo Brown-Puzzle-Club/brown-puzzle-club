@@ -3,7 +3,9 @@ title = "Puzzlethon"
 template = "puzzlethon.html"
 +++
 
-**Status**: We finished writing the hunt within 24 hours! If you want to solve the puzzles, you can [register a team here](https://puzzlethon.brownpuzzle.club/).
+<span class="bold-text">Status</span>: We finished writing the hunt within 24 hours! If you want to solve the puzzles, you can [register a team here](https://puzzlethon.brownpuzzle.club/).
+
+There are three livestreams: a [6-hour Day 1 livestream](https://www.youtube.com/watch?v=UsYU3zxQINQ&t=23610s&ab_channel=BrownPuzzlehunt) (NOTE: this livestream had persistent audio issues - sorry!), a [4-hour Day 2 livestream](https://www.youtube.com/watch?v=0GrGG0z8kjo&t=8212s&ab_channel=BrownPuzzlehunt), and a [short 15 minute stream](https://www.youtube.com/watch?v=LGhv4jE-j-c&ab_channel=BrownPuzzlehunt) after the hunt went live.
 
 If you enjoyed this hunt, and want to support Brown Puzzle Club, consider [donating to our club](https://bbis.advancement.brown.edu/BBPhenix/give-now?did=05732af4-d994-4d40-bcd6-fb42d07b6eab). Proceeds go directly toward events like this (mostly the server costs). 
 
