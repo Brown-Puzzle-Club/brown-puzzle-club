@@ -9,9 +9,9 @@ page_template = "list-page.html"
 
 ### Puzzlethon 2024
 
-An <a href="/puzzlethon">upcoming club event</a> starting on November 23rd.
+This was a <a href="/puzzlethon">club event</a> where we wrote and released an entire hunt, starting from scratch, in 24 hours.
 
-Puzzles written during Puzzlethon will release at 12pm Eastern Time on November 24th.
+You can see the hunt that we made <a href="https://puzzlethon.brownpuzzle.club/">here</a>! You can still register a team and progress through the hunt.
 
 ### Orientation Hunt 2024
 
