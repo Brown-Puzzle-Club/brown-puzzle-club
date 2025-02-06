@@ -21,7 +21,7 @@ The hunt had 4 puzzles and a meta, and was designed to be easily solvable by peo
 
 ### Brown Puzzlehunt 2024
 
-In 2024, <a href="https://www.brownpuzzlehunt.com">Brown Puzzlehunt</a> required the puzzling detectives to solve mysteries across Providence, and ultimately work out who orchestrated the murder of Josiah S. Carberry.
+In 2024, <a href="https://2024.brownpuzzlehunt.com">Brown Puzzlehunt</a> required the puzzling detectives to solve mysteries across Providence, and ultimately work out who orchestrated the murder of Josiah S. Carberry.
 
 ### Brown Puzzlehunt 2023
 
