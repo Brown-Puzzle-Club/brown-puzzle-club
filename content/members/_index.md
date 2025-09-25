@@ -25,7 +25,7 @@ page_template = "list-page.html"
     </tr>
     <tr>
         <td><img src="logo.png" width=290vw class="eboard-img"></td>
-        <td><b>Eliot Geer</b></td>
+        <td><b><a href="https://jaclyncohen.dev">Jaclyn Cohen</a></b></td>
         <td>Art Director</td>
     </tr>
     <tr>
@@ -35,12 +35,17 @@ page_template = "list-page.html"
     </tr>
     <tr>
         <td><img src="logo.png" width=290vw class="eboard-img"></td>
-        <td><b>Chloe Qiao</b></td>
+        <td><b><a href="https://www.qiaochloe.com/">Chloe Qiao</a></b></td>
         <td>Tech Director</td>
     </tr>
     <tr>
-        <td><img src="areng.png" width=290vw class="eboard-img"></td>
-        <td><b><a href="https://arenguralp.com/">Aren Guralp</a></b></td>
+        <td><img src="logo.png" width=290vw class="eboard-img"></td>
+        <td><b>Arnav Singhal</b></td>
+        <td>Testsolving Director</td>
+    </tr>
+    <tr>
+        <td><img src="logo.png" width=290vw class="eboard-img"></td>
+        <td><b>Nicholas Cressman</b></td>
         <td>Orientation Hunt Director</td>
     </tr>
     <tr>
