@@ -7,6 +7,12 @@ page_template = "list-page.html"
 
 <h1 style="text-align:center;">Past Hunts</h1>
 
+### Puzzlethon 2025
+
+This is an upcoming <a href="/puzzlethon">club event</a> where we'll write and release an entire hunt, starting from scratch, in 24 hours.
+
+You can see the website where the hunt *will* be <a href="https://puzzlethon.brownpuzzle.club/">here</a>! 
+
 ### Orientation Hunt 2025
 
 A <a href="/archive/orientation2025.pdf">small puzzle packet</a> written for New Student Orientation at Brown in September 2025.
@@ -19,7 +25,7 @@ In 2025, <a href="https://2025.brownpuzzlehunt.com">Brown Puzzlehunt</a> demande
 
 ### Puzzlethon 2024
 
-This was a <a href="/puzzlethon">club event</a> where we wrote and released an entire hunt, starting from scratch, in 24 hours.
+This was a <a href="2024-puzzlethon">club event</a> where we wrote and released an entire hunt, starting from scratch, in 24 hours.
 
 You can see the hunt that we made <a href="https://puzzlethon.brownpuzzle.club/">here</a>! You can still register a team and progress through the hunt.
 
