@@ -23,9 +23,9 @@ For a (much larger) example, take a look at last year's <a href="https://www.bro
 
 ### When is it?
 
-Writing will start on November 23rd, at noon ET.
+Writing will start on November 22nd, at noon ET.
 
-Puzzles will be released on November 24th, at noon ET.
+Puzzles will be released on November 23rd, at noon ET.
 
 ### Who are you?
 
