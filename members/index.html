@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Brown Puzzle Club</title>
+    <meta name="author" content="A website for Brown Puzzle Club, home to the puzzlehunting community at Brown.">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://brownpuzzle.club/favicon.ico">
+    <link itemprop="url" href="https:&#x2F;&#x2F;brownpuzzle.club">
+    <link rel="canonical" href="https:&#x2F;&#x2F;brownpuzzle.club">
+    <link rel="stylesheet" href="https://brownpuzzle.club/base.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            line-height: 1.5;
+        }
+    </style>
+
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <img src="https://brownpuzzle.club/logo.png" alt="Logo">
+      </div>
+      <button class="menu-toggle" id="menu-toggle">
+        &#9776; <!-- Hamburger! yum -->
+      </button>
+      <div class="nav-links">
+        <ul>
+          <li><a href="https://brownpuzzle.club" class="nav-button">Home</a></li>
+          <li><a href="https://brownpuzzle.club/members/" class="nav-button">Members</a></li>
+          <li><a href="https://brownpuzzle.club/archive/" class="nav-button">Past Hunts</a></li>
+          <li><a href="https://brownpuzzle.club/puzzlethon/" class="nav-button">Puzzlethon</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main>
+        
+<div class="content">
+  <h1 style="text-align: center;">E-Board and Writing Leads</h1>
+<table>
+    <tr>
+        <td><img src="erinf.png" width=290vw class="eboard-img"></td>
+        <td><b>Erin Finn</b></td>
+        <td>Supreme Ruler of the Known Cosmos</td>
+    </tr>
+    <tr>
+        <td><img src="meganc.png" width=290vw class="eboard-img"></td>
+        <td><b>Megan Carlson</b></td>
+        <td>Supreme Ruler of the Unknown Cosmos</td>
+    </tr>
+    <tr>
+        <td><img src="logo.png" width=290vw class="eboard-img"></td>
+        <td><b>Bailey Merlino</b></td>
+        <td>Art Director</td>
+    </tr>
+    <tr>
+        <td><img src="logo.png" width=290vw class="eboard-img"></td>
+        <td><b><a href="https://jaclyncohen.dev">Jaclyn Cohen</a></b></td>
+        <td>Art Director</td>
+    </tr>
+    <tr>
+        <td><img src="logo.png" width=290vw class="eboard-img"></td>
+        <td><b>Alex Wang</b></td>
+        <td>Tech Director</td>
+    </tr>
+    <tr>
+        <td><img src="logo.png" width=290vw class="eboard-img"></td>
+        <td><b><a href="https://www.qiaochloe.com/">Chloe Qiao</a></b></td>
+        <td>Tech Director</td>
+    </tr>
+    <tr>
+        <td><img src="logo.png" width=290vw class="eboard-img"></td>
+        <td><b>Arnav Singhal</b></td>
+        <td>Testsolving Director</td>
+    </tr>
+    <tr>
+        <td><img src="logo.png" width=290vw class="eboard-img"></td>
+        <td><b>Nicholas Cressman</b></td>
+        <td>Orientation Hunt Director</td>
+    </tr>
+    <tr>
+        <td><img src="thomasg.png" width=290vw class="eboard-img"></td>
+        <td><b><a href="https://metaterminal.fyi/">Thomas Gordon</a></b></td>
+        <td>Puzzle-Writing Director, Webmaster</td>
+    </tr>
+</table>
+
+</div>
+
+    </main>
+    <footer>
+    </footer>
+
+    <script>
+      // grrr I hate waiting for DOM
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        // Add event listener to the hamburger
+        menuToggle.addEventListener('click', function() {
+          // Toggle 'active' class / toggle dropdown menu
+          navLinks.classList.toggle('active');
+        });
+      });
+    </script>
+  </body>
+</html>

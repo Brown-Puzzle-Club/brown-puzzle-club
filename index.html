@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Brown Puzzle Club</title>
+    <meta name="author" content="A website for Brown Puzzle Club, home to the puzzlehunting community at Brown.">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://brownpuzzle.club/favicon.ico">
+    <link itemprop="url" href="https:&#x2F;&#x2F;brownpuzzle.club">
+    <link rel="canonical" href="https:&#x2F;&#x2F;brownpuzzle.club">
+    <link rel="stylesheet" href="https://brownpuzzle.club/base.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&display=swap" rel="stylesheet">
+    
+<meta name="description" content="Brown Puzzle Club">
+<style>
+  body {
+    display: block;
+    height: 100%;
+  }
+  body {
+    line-height: 1.5;
+  }
+</style>
+
+<script>
+window.onload = () => {
+  const container = document.querySelector('.image-container');
+  const images = Array.from(document.querySelectorAll('.floating-image'));
+  const containerWidth = container.offsetWidth;
+  const containerHeight = container.offsetHeight;
+
+  const imageSize = window.innerWidth * 0.08;
+  
+  const isMobile = window.innerWidth < 1000;
+  const bounceBoundary = isMobile ? 0 : -200; // Bounce off 0 on mobile, -200 on larger screens
+
+  // Randomize initial positions
+  function biasedPosition() {
+    const edgeBiasFactor = 0.2; // Bias the images away from the edges
+    const horizontalBias = Math.random() < 0.5 ? 0 : containerWidth - imageSize;
+    const verticalBias = Math.random() < 0.5 ? 0 : containerHeight - imageSize;
+
+    const x = Math.random() * (containerWidth - imageSize - 10);
+    const y = Math.random() * (containerHeight - imageSize - 10);
+
+    const biasedX = x < (containerWidth - 10) * edgeBiasFactor ? horizontalBias : x;
+    const biasedY = y < (containerHeight - 10) * edgeBiasFactor ? verticalBias : y;
+
+    return { x: biasedX, y: biasedY };
+  }
+
+  function checkOverlap(newX, newY, existingImages) {
+    return existingImages.some(img => {
+      const rect = img.getBoundingClientRect();
+      const imgCenterX = rect.left + rect.width / 2;
+      const imgCenterY = rect.top + rect.height / 2;
+
+      const distX = newX - imgCenterX;
+      const distY = newY - imgCenterY;
+      const distance = Math.sqrt(distX * distX + distY * distY);
+      return distance < imageSize;
+    });
+  }
+
+  let positions = [];
+
+  const centerPosition = {
+    x: (containerWidth - imageSize) * 0.3,
+    y: (containerHeight - imageSize) * 0.3
+  };
+  positions[13] = centerPosition;
+
+  images.forEach((img, index) => {
+    if (index !== 13) {
+      let position;
+      do {
+        position = biasedPosition();
+      } while (checkOverlap(position.x, position.y, images.slice(0, positions.length)));
+      positions[index] = position;
+    }
+    img.style.left = `${positions[index].x}px`;
+    img.style.top = `${positions[index].y}px`;
+  });
+
+  const velocities = images.map(() => ({
+    x: (Math.random() - 0.5) * 2,
+    y: (Math.random() - 0.5) * 2
+  }));
+
+  function pushApart(index1, index2) {
+    const pos1 = positions[index1];
+    const pos2 = positions[index2];
+    const distX = pos2.x - pos1.x;
+    const distY = pos2.y - pos1.y;
+    const distance = Math.sqrt(distX * distX + distY * distY);
+
+    const overlap = imageSize - distance;
+    if (overlap > 0) {
+      const directionX = distX / distance;
+      const directionY = distY / distance;
+
+      const separation = overlap / 2;
+      positions[index1].x -= directionX * separation;
+      positions[index1].y -= directionY * separation;
+      positions[index2].x += directionX * separation;
+      positions[index2].y += directionY * separation;
+    }
+  }
+
+  let isDragging = false;
+  let draggedIndex = null;
+  let dragOffsetX = 0;
+  let dragOffsetY = 0;
+
+  // Mouse event listeners!
+  images.forEach((img, index) => {
+    const onDragStart = (e) => {
+      e.preventDefault();
+      
+      const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+      const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
+      
+      isDragging = true;
+      draggedIndex = index;
+      dragOffsetX = clientX - positions[index].x;
+      dragOffsetY = clientY - positions[index].y;
+
+      velocities[index].x = 0;
+      velocities[index].y = 0;
+    };
+
+    img.addEventListener('mousedown', onDragStart);
+    img.addEventListener('touchstart', onDragStart);
+  });
+
+  container.addEventListener('mousemove', (e) => {
+    if (isDragging && draggedIndex !== null) {
+      const img = images[draggedIndex];
+      const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+      const clientY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
+
+      positions[draggedIndex].x = clientX - dragOffsetX;
+      positions[draggedIndex].y = clientY - dragOffsetY;
+
+      img.style.left = `${positions[draggedIndex].x}px`;
+      img.style.top = `${positions[draggedIndex].y}px`;
+
+      images.forEach((otherImg, otherIndex) => {
+        if (draggedIndex !== otherIndex) {
+          const otherPos = positions[otherIndex];
+          const distX = positions[draggedIndex].x - otherPos.x;
+          const distY = positions[draggedIndex].y - otherPos.y;
+          const distance = Math.sqrt(distX * distX + distY * distY);
+
+          if (distance < imageSize) {
+            pushApart(draggedIndex, otherIndex);
+            const vel1 = velocities[draggedIndex];
+            const vel2 = velocities[otherIndex];
+            vel1.x = -vel1.x;
+            vel1.y = -vel1.y;
+            vel2.x = -vel2.x;
+            vel2.y = -vel2.y;
+          }
+        }
+      });
+    }
+  });
+
+  container.addEventListener('mouseup', () => {
+    if (isDragging) {
+      isDragging = false;
+      velocities[draggedIndex].x = (Math.random() - 0.5) * 2;
+      velocities[draggedIndex].y = (Math.random() - 0.5) * 2;
+
+      draggedIndex = null;
+    }
+  });
+
+  container.addEventListener('touchmove', (e) => {
+    if (isDragging && draggedIndex !== null) {
+      const img = images[draggedIndex];
+      const clientX = e.touches[0].clientX;
+      const clientY = e.touches[0].clientY;
+
+      positions[draggedIndex].x = clientX - dragOffsetX;
+      positions[draggedIndex].y = clientY - dragOffsetY;
+
+      img.style.left = `${positions[draggedIndex].x}px`;
+      img.style.top = `${positions[draggedIndex].y}px`;
+
+      // Handle image bouncing on mobile
+      images.forEach((otherImg, otherIndex) => {
+        if (draggedIndex !== otherIndex) {
+          const otherPos = positions[otherIndex];
+          const distX = positions[draggedIndex].x - otherPos.x;
+          const distY = positions[draggedIndex].y - otherPos.y;
+          const distance = Math.sqrt(distX * distX + distY * distY);
+
+          if (distance < imageSize) {
+            pushApart(draggedIndex, otherIndex);
+            const vel1 = velocities[draggedIndex];
+            const vel2 = velocities[otherIndex];
+            vel1.x = -vel1.x;
+            vel1.y = -vel1.y;
+            vel2.x = -vel2.x;
+            vel2.y = -vel2.y;
+          }
+        }
+      });
+    }
+  });
+
+  container.addEventListener('touchend', () => {
+    if (isDragging) {
+      isDragging = false;
+      velocities[draggedIndex].x = (Math.random() - 0.5) * 2;
+      velocities[draggedIndex].y = (Math.random() - 0.5) * 2;
+
+      draggedIndex = null;
+    }
+  });
+
+  function animate() {
+    images.forEach((img, index) => {
+      if (!isDragging || index !== draggedIndex) {
+        const pos = positions[index];
+        const vel = velocities[index];
+
+        pos.x += vel.x;
+        pos.y += vel.y;
+
+        if (pos.x > containerWidth - imageSize) {
+          vel.x = -Math.abs(vel.x);
+        }
+        if (pos.x < bounceBoundary) {  
+          vel.x = Math.abs(vel.x);
+        }
+        if (pos.y < bounceBoundary) {  
+          vel.y = Math.abs(vel.y);
+        }
+        if (isMobile) {
+          if (pos.y > containerHeight - imageSize) {
+            vel.y = -Math.abs(vel.y);
+          }
+        } else {
+          if (pos.y > containerHeight) {
+            vel.y = -Math.abs(vel.y);
+          }
+        }
+
+        images.forEach((otherImg, otherIndex) => {
+          if (index !== otherIndex) {
+            const otherPos = positions[otherIndex];
+            const rect = img.getBoundingClientRect();
+            const otherRect = otherImg.getBoundingClientRect();
+            const distX = pos.x - otherPos.x;
+            const distY = pos.y - otherPos.y;
+            const distance = Math.sqrt(distX * distX + distY * distY);
+
+            if (distance < imageSize) {
+              const vel1 = velocities[index];
+              const vel2 = velocities[otherIndex];
+
+              if (Math.sign(vel1.x) !== Math.sign(vel2.x)) {
+                vel1.x = -vel1.x;
+                vel1.y = -vel1.y;
+                vel2.x = -vel2.x;
+                vel2.y = -vel2.y;
+              } else {
+                vel1.y = -vel1.y;
+                vel2.y = -vel2.y;
+              }
+
+              pushApart(index, otherIndex);
+            }
+          }
+        });
+
+        img.style.left = `${pos.x}px`;
+        img.style.top = `${pos.y}px`;
+      }
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+};
+</script>
+
+    <style>
+        body {
+            line-height: 1.5;
+        }
+    </style>
+
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <img src="https://brownpuzzle.club/logo.png" alt="Logo">
+      </div>
+      <button class="menu-toggle" id="menu-toggle">
+        &#9776; <!-- Hamburger! yum -->
+      </button>
+      <div class="nav-links">
+        <ul>
+          <li><a href="https://brownpuzzle.club" class="nav-button">Home</a></li>
+          <li><a href="https://brownpuzzle.club/members/" class="nav-button">Members</a></li>
+          <li><a href="https://brownpuzzle.club/archive/" class="nav-button">Past Hunts</a></li>
+          <li><a href="https://brownpuzzle.club/puzzlethon/" class="nav-button">Puzzlethon</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main>
+        
+<main>
+
+<div class="container">
+  <div class="image-container">
+    <img src="1.png" alt="Blueno" class="floating-image" loading="lazy">
+    <img src="2.png" alt="Blueno" class="floating-image" loading="lazy">
+    <img src="3.png" alt="Blueno" class="floating-image" loading="lazy"> 
+    <img src="4.png" alt="Blueno" class="floating-image" loading="lazy">
+    <img src="5.png" alt="Blueno" class="floating-image" loading="lazy">
+    <img src="6.png" alt="Blueno" class="floating-image" loading="lazy">
+    <img src="7.png" alt="Blueno" class="floating-image" loading="lazy">
+    <img src="8.png" alt="Blueno" class="floating-image" loading="lazy">
+    <img src="9.png" alt="Blueno" class="floating-image" loading="lazy">
+    <img src="10.png" alt="Blueno" class="floating-image" loading="lazy">
+    <img src="11.png" alt="Blueno" class="floating-image" loading="lazy">
+    <img src="12.png" alt="Blueno" class="floating-image" loading="lazy">
+    <img src="13.png" alt="Blueno" class="floating-image" loading="lazy">
+    <img src="logo.png" alt="BPC logo." class="floating-image" style="width: 30vw;" loading="lazy"> 
+  </div>
+  <div class="content-vertical-hack">
+  <div class="front-content" style="margin-top: 10px;"> 
+    <h1 style="text-align: center; margin-top: 0px;"><b>Brown Puzzle Club</b></h1>
+    
+    <p>The home of the puzzlehunting community at Brown University.</p>
+
+    <h4>What is a puzzlehunt (or puzzle hunt)?</h4>
+
+    <p>A puzzlehunt is an event where teams of people compete to solve puzzles. 
+      These puzzles can be anything: word games, logic puzzles, video games, physical objects, or in-person challenges.</p>
+
+    <h4>What do you do?</h4>
+
+    <ul>
+      <li>We write <a href="https://www.brownpuzzlehunt.com">yearly puzzlehunts</a>! (See our <a href="/archive">archive</a>.)</li>
+      <li>We solve puzzlehunts together! 
+        <ul>
+          <li>For big hunts (like MIT Mystery Hunt), many in our club hunt with a larger team known as Providence.</li>
+          <li>For smaller hunts, check out our Discord or listserv to hear when we're putting together our teams.</li>
+        </ul>
+      <li>We work on other cool events:
+        <ul>
+          <li>We're going to write an <a href="/puzzlethon">entire puzzlehunt</a> in 24 hours! (We also did it <a href="/archive/2024-puzzlethon">last year</a>.)</li>
+          <li>Several members of the club wrote puzzles or made art for the <a href="https://mitmysteryhatch.com/">MIT Mystery Hatch</a>, 
+            which released on November 11th.</li>
+        </ul>
+      </li>
+      <li>We have General Body Meetings once a week: Thursdays, at 7pm, in Page-Robinson 401.</li>
+    </ul>
+
+    <h4>How can I get involved?</h4>
+
+    <p>If you're a Brown student, <a href="https://listserv.brown.edu/cgi-bin/wa?SUBED1=PUZZLE&A=1">join our listserv</a>! 
+      You can also join our Discord through the Brown Student Hub.</p>
+
+    <p>If you're not a Brown student, support us by <a href="https://bbis.advancement.brown.edu/BBPhenix/give-now?did=05732af4-d994-4d40-bcd6-fb42d07b6eab">
+      donating to our club</a>; 
+      proceeds go primarily towards server costs and other expenses around hosting events like Brown Puzzlehunt or Puzzlethon.</p>
+    
+    <p>Got questions? Email us at puzzle@<span>brown</span>.edu.</p>
+
+    <p>Also, check us out on <a href="https://www.instagram.com/brownpuzzlehunt/">Instagram</a>!</p>
+
+    <h4>Legal stuff</h4>
+
+    <p>The content of UCS/GSC recognized student organization websites is generated independently from Brown University. The statements, views, opinions, and information contained on the site are personal to those of the authors and student organization and do not necessarily reflect those of Brown University. The content on the site is not reviewed, approved, or endorsed by Brown University or its faculty or staff.</p>
+    
+    <p class="small-text">BPC Logo by Eliot Geer. Blueno art by Phil Avilov, Talia Bloomfield, Lucid Clairvoyant, Jaclyn Cohen, 
+      Eliot Geer, and Bailey Merlino.</p>
+
+  </div>
+</div>
+</div>
+</div>  
+</main>
+
+    </main>
+    <footer>
+    </footer>
+
+    <script>
+      // grrr I hate waiting for DOM
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        // Add event listener to the hamburger
+        menuToggle.addEventListener('click', function() {
+          // Toggle 'active' class / toggle dropdown menu
+          navLinks.classList.toggle('active');
+        });
+      });
+    </script>
+  </body>
+</html>

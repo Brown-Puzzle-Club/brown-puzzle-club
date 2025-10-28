@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Brown Puzzle Club</title>
+    <meta name="author" content="A website for Brown Puzzle Club, home to the puzzlehunting community at Brown.">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://brownpuzzle.club/favicon.ico">
+    <link itemprop="url" href="https:&#x2F;&#x2F;brownpuzzle.club">
+    <link rel="canonical" href="https:&#x2F;&#x2F;brownpuzzle.club">
+    <link rel="stylesheet" href="https://brownpuzzle.club/base.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            line-height: 1.5;
+        }
+    </style>
+
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <img src="https://brownpuzzle.club/logo.png" alt="Logo">
+      </div>
+      <button class="menu-toggle" id="menu-toggle">
+        &#9776; <!-- Hamburger! yum -->
+      </button>
+      <div class="nav-links">
+        <ul>
+          <li><a href="https://brownpuzzle.club" class="nav-button">Home</a></li>
+          <li><a href="https://brownpuzzle.club/members/" class="nav-button">Members</a></li>
+          <li><a href="https://brownpuzzle.club/archive/" class="nav-button">Past Hunts</a></li>
+          <li><a href="https://brownpuzzle.club/puzzlethon/" class="nav-button">Puzzlethon</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main>
+        
+<div class="content">
+  <h1 style="text-align:center;">Past Hunts</h1>
+<h3 id="puzzlethon-2025">Puzzlethon 2025</h3>
+<p>This is an upcoming <a href="/puzzlethon">club event</a> where we’ll write and release an entire hunt, starting from scratch, in 24 hours.</p>
+<p>You can see the website where the hunt <em>will</em> be <a href="https://puzzlethon.brownpuzzle.club/">here</a>!</p>
+<h3 id="orientation-hunt-2025">Orientation Hunt 2025</h3>
+<p>A <a href="/archive/orientation2025.pdf">small puzzle packet</a> written for New Student Orientation at Brown in September 2025.</p>
+<p>The hunt had 4 puzzles and a meta, and was designed to be easily solvable by people new to hunting.</p>
+<h3 id="brown-puzzlehunt-2025">Brown Puzzlehunt 2025</h3>
+<p>In 2025, <a href="https://2025.brownpuzzlehunt.com">Brown Puzzlehunt</a> demanded that solvers fix Brown Puzzle Cinemas’ six unfinished movies before awards season.</p>
+<h3 id="puzzlethon-2024">Puzzlethon 2024</h3>
+<p>This was a <a href="2024-puzzlethon">club event</a> where we wrote and released an entire hunt, starting from scratch, in 24 hours.</p>
+<p>You can see the hunt that we made <a href="https://puzzlethon.brownpuzzle.club/">here</a>! You can still register a team and progress through the hunt.</p>
+<h3 id="orientation-hunt-2024">Orientation Hunt 2024</h3>
+<p>A <a href="/archive/orientation2024.pdf">small puzzle packet</a> written for New Student Orientation at Brown in September 2024.</p>
+<p>The hunt had 4 puzzles and a meta, and was designed to be easily solvable by people new to hunting.</p>
+<h3 id="brown-puzzlehunt-2024">Brown Puzzlehunt 2024</h3>
+<p>In 2024, <a href="https://2024.brownpuzzlehunt.com">Brown Puzzlehunt</a> required the puzzling detectives to solve mysteries across Providence, and ultimately work out who orchestrated the murder of Josiah S. Carberry.</p>
+<h3 id="brown-puzzlehunt-2023">Brown Puzzlehunt 2023</h3>
+<p>In 2023, <a href="https://2023.brownpuzzlehunt.com/">Brown Puzzlehunt</a> asked puzzle-solvers to defeat an eldritch evil, Blueno, which threatened to destroy all of Providence.</p>
+
+</div>
+
+    </main>
+    <footer>
+    </footer>
+
+    <script>
+      // grrr I hate waiting for DOM
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        // Add event listener to the hamburger
+        menuToggle.addEventListener('click', function() {
+          // Toggle 'active' class / toggle dropdown menu
+          navLinks.classList.toggle('active');
+        });
+      });
+    </script>
+  </body>
+</html>
