@@ -51,4 +51,4 @@ Why does PB12 come out on the day that we're doing Puzzlethon?
 
 If you're interested in participating in Puzzlethon (and you're a Brown or RISD student), [fill out this form](https://forms.gle/62rNmpGzUkYPqN978)! 
 
-If you're not a Brown or RISD student, you can [check out our livestream](https://youtube.com/live/sjQ9wiGR2C0), and [solve the puzzles](https://puzzlethon.brownpuzzle.club/) once they release.
+If you're not a Brown or RISD student, you can [check out our livestream](https://youtube.com/live/sjQ9wiGR2C0), and [solve the puzzles](https://puzzlethon.brownpuzzleclub.com/) once they release.
