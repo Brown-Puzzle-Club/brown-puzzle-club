@@ -1,7 +1,12 @@
 +++
-title = "2026 Puzzlethon"
+title = "2025 Puzzlethon"
 template = "puzzlethon.html"
+date = 2025-11-22
 +++
+
+<span class="bold-text">Status</span>: We finished writing the hunt within 24 hours! If you want to solve the puzzles, you can [register a team here](https://2025.puzzlethon.brownpuzzleclub.com/). Even though the hunt has ended, registering a team will still let you progress through the hunt.
+
+The livestream unfortunately was not saved.
 
 ### What is this?
 

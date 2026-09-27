@@ -9,9 +9,9 @@ page_template = "list-page.html"
 
 ### Puzzlethon 2025
 
-This is an upcoming <a href="/puzzlethon">club event</a> where we'll write and release an entire hunt, starting from scratch, in 24 hours.
+This was a <a href="2025-puzzlethon">club event</a> where we wrote and released an entire hunt, starting from scratch, in 24 hours.
 
-You can see the website where the hunt *will* be <a href="https://puzzlethon.brownpuzzleclub.com/">here</a>! 
+You can see the hunt that we made <a href="https://2025.puzzlethon.brownpuzzleclub.com/">here</a>! You can still register a team and progress through the hunt.
 
 ### Orientation Hunt 2025
 
@@ -31,7 +31,7 @@ You can see the hunt that we made <a href="https://puzzlethon.brownpuzzleclub.co
 
 ### Orientation Hunt 2024
 
-A <a href="/archive/orientation2024.pdf">small puzzle packet</a> written for New Student Orientation at Brown in September 2024. 
+A <a href="/archive/orientation2024.pdf">small puzzle packet</a> written for New Student Orientation at Brown in September 2024.
 
 The hunt had 4 puzzles and a meta, and was designed to be easily solvable by people new to hunting.
 
