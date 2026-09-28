@@ -1,17 +1,3 @@
-{% extends "base.html" %}
-
-
-{% block header %}
-  <h1 class="title">{% if page.extra.display_title %}{{ page.extra.display_title | markdown(inline=true) | safe }}{% else %}{{ page.title }}{% endif %}</h1>
-
-  {% if page.extra.publish_note %}
-  <em>{{ page.extra.publish_note | markdown | safe }}</em>
-  {% endif %}
-{% endblock header %}
-
-
-{% block content %}
-<div class="content">
-{{ page.content | safe }}
-</div>
+{% extends "base.html" %} {% block content %}
+<div class="content">{{ page.content | safe }}</div>
 {% endblock %}
