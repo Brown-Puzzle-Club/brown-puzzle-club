@@ -23,9 +23,9 @@ For a (much larger) example, take a look at last year's <a href="https://www.bro
 
 ### When is it?
 
-Writing will start on November 22nd, at noon ET.
+Writing will start on November 21st, at noon ET.
 
-Puzzles will be released on November 23rd, at noon ET.
+Puzzles will be released on November 22nd, at noon ET.
 
 ### Who are you?
 
@@ -43,12 +43,8 @@ A few reasons:
     <li>We're testing our websockets. Very important.</li>
 </ol>
 
-### Why are you doing Puzzlethon on the day that Puzzle Boat 12 comes out?
-
-Why does PB12 come out on the day that we're doing Puzzlethon?
-
 ### How can I be involved?
 
-If you're interested in participating in Puzzlethon (and you're a Brown or RISD student), [fill out this form](https://forms.gle/62rNmpGzUkYPqN978)!
+If you're interested in participating in Puzzlethon (and you're a Brown or RISD student), [fill out this form](https://forms.gle/FttWGerXi13sQyn96)!
 
-If you're not a Brown or RISD student, you can [check out our livestream](https://youtube.com/live/sjQ9wiGR2C0), and [solve the puzzles](https://puzzlethon.brownpuzzleclub.com/) once they release.
+If you're not a Brown or RISD student, you can [check out our livestream](https://www.youtube.com/@BrownPuzzlehunt/streams) when we go live, and [solve the puzzles](https://puzzlethon.brownpuzzleclub.com/) once they release.
