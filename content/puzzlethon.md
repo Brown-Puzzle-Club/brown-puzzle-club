@@ -15,6 +15,8 @@ Making a puzzlehunt requires all kinds of people with many different skillsets: 
 
 If you're interested in participating in Puzzlethon (and you're a Brown or RISD student), fill out [this form](https://forms.gle/62rNmpGzUkYPqN978)! If you're interested in spectating Puzzlethon, [watch our livestream when it goes live](https://youtube.com/live/sjQ9wiGR2C0)!
 
+You may find past years' Puzzlethons in our <a href="/archive/">club archive</a>.
+
 ### What's a puzzlehunt?
 
 A puzzlehunt is an event where teams of people compete to solve puzzles. These puzzles can be anything: word games, logic puzzles, video games, physical objects, or in-person challenges.
