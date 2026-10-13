@@ -58,10 +58,10 @@ window.onload = () => {
     x: (containerWidth - imageSize) * 0.3,
     y: (containerHeight - imageSize) * 0.3
   };
-  positions[13] = centerPosition;
+  positions[12] = centerPosition;
 
   images.forEach((img, index) => {
-    if (index !== 13) {
+    if (index !== 12) {
       let position;
       do {
         position = biasedPosition();
@@ -282,12 +282,14 @@ window.onload = () => {
 {% block content %}
 <main>
 
+  <!-- Note: If you change the number of images here, you have to change 
+   the index 12 in the window.onload function above to equal the length of this list plus 1-->
 <div class="container">
   <div class="image-container">
     <img src="1.png" alt="Blueno" class="floating-image" loading="lazy">
     <img src="2.png" alt="Blueno" class="floating-image" loading="lazy">
     <img src="3.png" alt="Blueno" class="floating-image" loading="lazy"> 
-    <img src="4.png" alt="Blueno" class="floating-image" loading="lazy">
+    <!-- <img src="4.png" alt="Blueno" class="floating-image" loading="lazy"> -->
     <img src="5.png" alt="Blueno" class="floating-image" loading="lazy">
     <img src="6.png" alt="Blueno" class="floating-image" loading="lazy">
     <img src="7.png" alt="Blueno" class="floating-image" loading="lazy">
@@ -345,7 +347,7 @@ window.onload = () => {
 
     <p>The content of UCS/GSC recognized student organization websites is generated independently from Brown University. The statements, views, opinions, and information contained on the site are personal to those of the authors and student organization and do not necessarily reflect those of Brown University. The content on the site is not reviewed, approved, or endorsed by Brown University or its faculty or staff.</p>
     
-    <p class="small-text">BPC Logo by Eliot Geer. Blueno art by Phil Avilov, Talia Bloomfield, Lucid Clairvoyant, Jaclyn Cohen, 
+    <p class="small-text">BPC Logo by Eliot Geer. Blueno art by Phil Avilov, Talia Bloomfield, Lucid Clairvoyant, 
       Eliot Geer, and Bailey Merlino.</p>
 
   </div>
