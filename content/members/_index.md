@@ -55,7 +55,7 @@ Aren Guralp: Senior Editor, Webmaster -->
     </tr>
     <tr>
         <td><img src="jackdh.png" width=290vw class="eboard-img"></td>
-        <td><a href="https://www.jackdehaan.com/" ><b>Jack de Haan</b></a></td>
+        <td><b><a href="https://www.jackdehaan.com/" >Jack de Haan</a></b></td>
         <td>Tech Shadow</td>
     </tr>
     <tr>
